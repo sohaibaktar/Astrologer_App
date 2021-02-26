@@ -1,33 +1,35 @@
-package com.b.chattappmean.adapters;
+package com.b.chattappmean;
 
 public class Message {
-    private String messageId, message, senderId;
+
+    private String MessageId,Message, senderId;
     private long timestamp;
     private int feeling = -1;
 
     public Message() {
+
     }
 
-    public Message(String messageId, String message, String senderId) {
-        this.messageId = messageId;
-        this.message = message;
+    public Message(String message, String senderId, long timestamp) {
+        Message = message;
         this.senderId = senderId;
+        this.timestamp = timestamp;
     }
 
     public String getMessageId() {
-        return messageId;
+        return MessageId;
     }
 
     public void setMessageId(String messageId) {
-        this.messageId = messageId;
+        MessageId = messageId;
     }
 
     public String getMessage() {
-        return message;
+        return Message;
     }
 
     public void setMessage(String message) {
-        this.message = message;
+        Message = message;
     }
 
     public String getSenderId() {

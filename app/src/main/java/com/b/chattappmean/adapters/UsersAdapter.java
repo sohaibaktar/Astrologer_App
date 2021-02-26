@@ -41,9 +41,6 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
     public void onBindViewHolder(@NonNull UsersViewHolder holder, int position) {
         User user = users.get(position);
 
-
-
-
         holder.binding.username.setText(user.getName());
 
         Glide.with(context).load(user.getProfileImage())
