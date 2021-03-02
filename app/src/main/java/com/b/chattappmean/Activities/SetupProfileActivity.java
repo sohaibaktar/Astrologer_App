@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.b.chattappmean.User;
 import com.b.chattappmean.databinding.ActivitySetupProfileBinding;
@@ -33,6 +36,8 @@ public class SetupProfileActivity extends AppCompatActivity {
     FirebaseStorage storage;
     Uri selectedImage;
     ProgressDialog dialog;
+    RadioButton radiobutton;
+    String selectedR_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,8 @@ public class SetupProfileActivity extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         auth = FirebaseAuth.getInstance();
 
+
+
         getSupportActionBar().hide();
 
         binding.imageView.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +68,7 @@ public class SetupProfileActivity extends AppCompatActivity {
         });
 
         binding.continueBtn.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
                 String name = binding.nameBox.getText().toString();
@@ -69,6 +77,16 @@ public class SetupProfileActivity extends AppCompatActivity {
                     binding.nameBox.setError("Please type a name");
                     return;
                 }
+                int selectedId = binding.radiogrpid.getCheckedRadioButtonId();
+
+                if (selectedId != -1){
+                    radiobutton = findViewById(selectedId);
+                    selectedR_btn = radiobutton.getText().toString();
+                }
+
+
+
+                Toast.makeText(getApplicationContext(),selectedR_btn,Toast.LENGTH_SHORT).show();
 
                 dialog.show();
                 if(selectedImage != null) {
@@ -89,7 +107,7 @@ public class SetupProfileActivity extends AppCompatActivity {
                                         User user = new User(uid, name, phone, imageUrl);
 
                                         database.getReference()
-                                                .child("users")
+                                                .child("Profiles").child(selectedR_btn)
                                                 .child(uid)
                                                 .setValue(user)
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -113,7 +131,7 @@ public class SetupProfileActivity extends AppCompatActivity {
                     User user = new User(uid, name, phone, "No Image");
 
                     database.getReference()
-                            .child("users")
+                            .child("Profiles").child(selectedR_btn)
                             .child(uid)
                             .setValue(user)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -121,6 +139,7 @@ public class SetupProfileActivity extends AppCompatActivity {
                                 public void onSuccess(Void aVoid) {
                                     dialog.dismiss();
                                     Intent intent = new Intent(SetupProfileActivity.this, MainActivity.class);
+                                    intent.putExtra("radio_btn",selectedR_btn);
                                     startActivity(intent);
                                     finish();
                                 }

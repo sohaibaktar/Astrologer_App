@@ -68,6 +68,33 @@
                 android:padding="10dp"
                 />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Are You ?"/>
+            <RadioGroup
+                android:id="@+id/radiogrpid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <RadioButton
+                    android:id="@+id/astroradiobtn_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="Astrologer"/>
+                <RadioButton
+                    android:id="@+id/clientsradiobtn_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:text="Clients"
+                    />
+
+            </RadioGroup>
+
             <Button
                 android:id="@+id/continueBtn"
                 android:layout_width="match_parent"

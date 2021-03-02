@@ -12,6 +12,7 @@ import com.b.chattappmean.R;
 import com.b.chattappmean.User;
 import com.b.chattappmean.adapters.UsersAdapter;
 import com.b.chattappmean.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,14 +39,18 @@ public class MainActivity extends AppCompatActivity {
                 usersAdapter = new UsersAdapter(this, users);
                 binding.recyclerView.setAdapter(usersAdapter);
 
+                String you_are = getIntent().getStringExtra("radio_btn");
+
                 //fetch data from database
-                database.getReference().child("users").addValueEventListener(new ValueEventListener() {
+                database.getReference().child("Profiles").child(you_are).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 users.clear();
                                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                                         User user = snapshot1.getValue(User.class);
-                                        users.add(user);
+                                        if(!user.getUid().equals(FirebaseAuth.getInstance().getUid()))
+                                                users.add(user);
+                                       
                                 }
                                 usersAdapter.notifyDataSetChanged();
                         }
