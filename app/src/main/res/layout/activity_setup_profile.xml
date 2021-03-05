@@ -84,13 +84,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
-                    android:text="Astrologer"/>
+                    android:text="@string/astrologer"/>
                 <RadioButton
                     android:id="@+id/clientsradiobtn_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="50dp"
-                    android:text="Clients"
+                    android:text="@string/clients"
                     />
 
             </RadioGroup>

@@ -24,7 +24,7 @@ public class PhoneNumberActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
 
         if(auth.getCurrentUser() != null) {
-            Intent intent = new Intent(PhoneNumberActivity.this,MainActivity.class);
+            Intent intent = new Intent(PhoneNumberActivity.this,SetupProfileActivity.class);
             startActivity(intent);
             finish();
         }

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">chattAppMean</string>
+
+
+    <string name="clientbtn">Search Astrologer</string>
+    <string name="astrologerbtn">Check Clients</string>
+
+
+    <string name="clients">Clients</string>
+    <string name="astrologer">Astrologer</string>
+
+
 </resources>

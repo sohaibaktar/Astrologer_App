@@ -114,7 +114,8 @@ public class SetupProfileActivity extends AppCompatActivity {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {
                                                         dialog.dismiss();
-                                                        Intent intent = new Intent(SetupProfileActivity.this, MainActivity.class);
+                                                        Intent intent = new Intent(SetupProfileActivity.this, ChoosingActivity.class);
+                                                        intent.putExtra("radio_btn",selectedR_btn);
                                                         startActivity(intent);
                                                         finish();
                                                     }
@@ -138,7 +139,7 @@ public class SetupProfileActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     dialog.dismiss();
-                                    Intent intent = new Intent(SetupProfileActivity.this, MainActivity.class);
+                                    Intent intent = new Intent(SetupProfileActivity.this, ChoosingActivity.class);
                                     intent.putExtra("radio_btn",selectedR_btn);
                                     startActivity(intent);
                                     finish();

@@ -39,27 +39,51 @@ public class MainActivity extends AppCompatActivity {
                 usersAdapter = new UsersAdapter(this, users);
                 binding.recyclerView.setAdapter(usersAdapter);
 
-                String you_are = getIntent().getStringExtra("radio_btn");
+                String you_are = getIntent().getStringExtra("radio_btn1");
+                Toast.makeText(getApplicationContext(),you_are,Toast.LENGTH_SHORT).show();
 
-                //fetch data from database
-                database.getReference().child("Profiles").child(you_are).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                users.clear();
-                                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                                        User user = snapshot1.getValue(User.class);
-                                        if(!user.getUid().equals(FirebaseAuth.getInstance().getUid()))
-                                                users.add(user);
-                                       
+                if (you_are.equals("Astrologer")){
+                        database.getReference().child("Profiles").child("Clients").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        users.clear();
+                                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                                                User user = snapshot1.getValue(User.class);
+                                                if(!user.getUid().equals(FirebaseAuth.getInstance().getUid()))
+                                                        users.add(user);
+
+                                        }
+                                        usersAdapter.notifyDataSetChanged();
                                 }
-                                usersAdapter.notifyDataSetChanged();
-                        }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-                        }
-                });
+                                }
+                        });
+                }
+                if (you_are.equals("Clients")){
+                        database.getReference().child("Profiles").child("Astrologer").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        users.clear();
+                                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                                                User user = snapshot1.getValue(User.class);
+                                                if(!user.getUid().equals(FirebaseAuth.getInstance().getUid()))
+                                                        users.add(user);
+
+                                        }
+                                        usersAdapter.notifyDataSetChanged();
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                        });
+                }
+                //fetch data from database
+
 
         }
 
