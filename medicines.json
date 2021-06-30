@@ -1,8 +1,4 @@
 [
-{"type":"header","version":"4.9.2","comment":"Export to JSON plugin for PHPMyAdmin"},
-{"type":"database","name":"medicaldb"},
-{"type":"table","name":"medicines","database":"medicaldb","data":
-[
 {"SNo":"1","Name":"Calpol 650mg","Side Effects":"Stomach pain\r\nNausea\r\nVomiting","Composition":"Paracetamol (650mg)","Uses":"Pain relief\r\nFever","Storage":"Store below 30°C"},
 {"SNo":"2","Name":"Crocin Advance","Side Effects":"Stomach pain,Nausea,Vomiting","Composition":"Paracetamol (500mg)","Uses":"Pain relief,Fever","Storage":"Store below 30°C"},
 {"SNo":"3","Name":"Amoxyclav 625 ","Side Effects":"Vomiting,\r\nNausea,\r\nDiarrhea","Composition":"Amoxycillin (500mg) + Clavulanic Acid (125mg)","Uses":"Bacterial infections","Storage":"Store below 30°C"},
@@ -105,6 +101,4 @@
 {"SNo":"100","Name":"Sulisent 100mg","Side Effects":"Fungal infection of vagina,\r\nUrinary tract infection,\r\nFrequent urge to urinate","Composition":"Canagliflozin (100mg)","Uses":"Type 2 diabetes mellitus","Storage":"Store below 30°C"},
 {"SNo":"101","Name":"Losar 25","Side Effects":"Dizziness,\r\nDecreased blood pressure,\r\nHypoglycemia (low blood glucose level),\r\nIncreased potassium level in blood,\r\nIncreased blood urea","Composition":"Losartan (25mg)","Uses":"Hypertension (high blood pressure),\r\nHeart failure,\r\nPrevention of heart attack and stroke","Storage":"Store below 30°C"},
 {"SNo":"102","Name":"Losar 50","Side Effects":"Dizziness,\r\nDecreased blood pressure,\r\nHypoglycemia (low blood glucose level),\r\nIncreased potassium level in blood,\r\nIncreased blood urea","Composition":"Losartan (50mg)","Uses":"Hypertension (high blood pressure),\r\nHeart failure,\r\nPrevention of heart attack and stroke","Storage":"Store below 30°C"}
-]
-}
 ]
