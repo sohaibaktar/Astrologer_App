@@ -29,7 +29,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZBnifZsjpSlW4Qz6cy2w2WzLKmox_K5A"
+          "current_key": "AIzaSyCaGYgBBYHpAokLMBiE0pBHPEarFNjxtTo"
         }
       ],
       "services": {
@@ -52,13 +52,21 @@
       },
       "oauth_client": [
         {
+          "client_id": "815938783018-0bl361426269keeocp36echprge847sp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.b.chattappmean",
+            "certificate_hash": "a7ba512173798491704cbb0dbbacdcabd02211a9"
+          }
+        },
+        {
           "client_id": "815938783018-edkuihdq3nq7c55q0uk3njjfp059b94e.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZBnifZsjpSlW4Qz6cy2w2WzLKmox_K5A"
+          "current_key": "AIzaSyCaGYgBBYHpAokLMBiE0pBHPEarFNjxtTo"
         }
       ],
       "services": {
@@ -95,7 +103,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZBnifZsjpSlW4Qz6cy2w2WzLKmox_K5A"
+          "current_key": "AIzaSyCaGYgBBYHpAokLMBiE0pBHPEarFNjxtTo"
         }
       ],
       "services": {
@@ -124,7 +132,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZBnifZsjpSlW4Qz6cy2w2WzLKmox_K5A"
+          "current_key": "AIzaSyCaGYgBBYHpAokLMBiE0pBHPEarFNjxtTo"
         }
       ],
       "services": {
@@ -161,7 +169,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBZBnifZsjpSlW4Qz6cy2w2WzLKmox_K5A"
+          "current_key": "AIzaSyCaGYgBBYHpAokLMBiE0pBHPEarFNjxtTo"
         }
       ],
       "services": {
