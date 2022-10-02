@@ -3,8 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/acrtivity_main.xml" value="0.253125" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/activity_chat.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/activity_choosing.xml" value="0.18177083333333333" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/activity_main.xml" value="0.15989583333333332" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/activity_main2.xml" value="0.25416666666666665" />
         <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/activity_phone_number.xml" value="0.19701086956521738" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/activity_registraion.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/activity_registration.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/activity_setup_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/activity_sign_up.xml" value="0.11302083333333333" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/item_receive.xml" value="0.15989583333333332" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/item_sent.xml" value="0.15989583333333332" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/layout/row_conversation.xml" value="0.15989583333333332" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/GitHub/Astrologer_App/app/src/main/res/menu/topmenu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

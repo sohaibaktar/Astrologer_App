@@ -34,38 +34,21 @@ public class PhoneNumberActivity extends AppCompatActivity {
         email_ = findViewById(R.id.mail_id);
         password_ = findViewById(R.id.mail_pass);
         mAuth = FirebaseAuth.getInstance();
-        if(mAuth.getCurrentUser() != null) {
-            Intent intent = new Intent(PhoneNumberActivity.this,MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
+        //if user come to second time.
+//        if(mAuth.getCurrentUser() != null) {
+//            Intent intent = new Intent(PhoneNumberActivity.this,MainActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
 
         getSupportActionBar().hide();
 
-        binding.phoneBox.requestFocus();
 
-        binding.continueBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(PhoneNumberActivity.this, OTPActivity.class);
-                intent.putExtra("phoneNumber", binding.phoneBox.getText().toString());
-                startActivity(intent);
-            }
-        });
 
     }
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            //reload();
-        }
-    }
 
-    public void SignUp(View view) {
+
+    public void SignIn(View view) {
         String email = email_.getText().toString();
         String password = password_.getText().toString();
         mAuth.signInWithEmailAndPassword(email, password)
@@ -77,6 +60,7 @@ public class PhoneNumberActivity extends AppCompatActivity {
                             Log.d("TAG", "signInWithEmail:success");
                             Intent intent = new Intent(PhoneNumberActivity.this, SetupProfileActivity.class);
                             startActivity(intent);
+                            finish();
                             FirebaseUser user = mAuth.getCurrentUser();
 
                         } else {
@@ -88,5 +72,10 @@ public class PhoneNumberActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    public void Register(View view) {
+        Intent intent = new Intent(PhoneNumberActivity.this, Registration.class);
+        startActivity(intent);
     }
 }

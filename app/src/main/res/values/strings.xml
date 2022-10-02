@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">chattAppMean</string>
+    <string name="app_name">Chat App</string>
+    <string name="reg">Are You user?, <b>Register</b></string>
+    <string name="are_you_registered_user_sign_in">Are you registered User? <b>Sign In</b></string>
 </resources>

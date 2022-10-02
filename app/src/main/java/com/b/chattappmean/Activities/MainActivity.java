@@ -2,8 +2,10 @@ package com.b.chattappmean.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -19,30 +21,48 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-        private ActivityMainBinding binding;
-        FirebaseDatabase database;
-        ArrayList<User> users;
-        UsersAdapter usersAdapter;
+    private ActivityMainBinding binding;
+    FirebaseDatabase database;
+    ArrayList<User> users;
+    UsersAdapter usersAdapter;
+    FirebaseAuth mAuth;
+    User user;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                binding = ActivityMainBinding.inflate(getLayoutInflater());
-                setContentView(binding.getRoot());
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-                database = FirebaseDatabase.getInstance();
-                users = new ArrayList<>();
+        mAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        users = new ArrayList<>();
 
-                usersAdapter = new UsersAdapter(this, users);
-                binding.recyclerView.setAdapter(usersAdapter);
+        database.getReference().child("users").child(FirebaseAuth.getInstance().getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        user = snapshot.getValue(User.class);
+                    }
 
-                String you_are = getIntent().getStringExtra("radio_btn");
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+        //recylerview
+        usersAdapter = new UsersAdapter(this, users);
+        binding.recyclerView.setAdapter(usersAdapter);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
                 //fetch data from database
-                database.getReference().child("Profiles").child(you_are).addValueEventListener(new ValueEventListener() {
+                database.getReference().child("users").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 users.clear();
@@ -55,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
                                 usersAdapter.notifyDataSetChanged();
                         }
 
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d("TAG", "onCancelled: "+error.toString());
+            }
+        });
 
-                        }
-                });
-
-        }
+    }
 
 
         @Override

@@ -65,9 +65,7 @@ public class MessagesAdapter extends RecyclerView.Adapter {
             ReceiverViewHolder viewHolder = (ReceiverViewHolder) holder;
             viewHolder.binding.message.setText(message.getMessage());
         }
-
-
-        }
+    }
 
     @Override
     public int getItemCount() {

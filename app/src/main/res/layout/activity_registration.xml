@@ -1,9 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_bg"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".Activities.Registration">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register yourself"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/teal_200"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TIL1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
+        app:helperText="Mandatory*"
+        app:helperTextTextColor="@color/teal_700"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+
+        <EditText
+            android:id="@+id/regmailid"
+            android:layout_width="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter Your Email Id"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TIL2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
+        app:helperText="Mandatory*"
+        app:helperTextTextColor="@color/teal_700"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+
+        <EditText
+            android:id="@+id/reg_fullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Your Full Name: "
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TIL3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
+        app:helperText="Mandatory*"
+        app:helperTextTextColor="@color/teal_700"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+
+        <EditText
+            android:id="@+id/regpassid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Password"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/reg_btnId"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Sign Up" />
+
+    <TextView
+        android:id="@+id/signIn_tvId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#0B0101"
+        android:gravity="center"
+        android:text="@string/are_you_registered_user_sign_in"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        />
+
+    <ProgressBar
+        android:id="@+id/reg_progressId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+
+</LinearLayout>

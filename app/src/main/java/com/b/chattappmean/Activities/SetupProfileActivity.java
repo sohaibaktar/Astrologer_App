@@ -77,17 +77,7 @@ public class SetupProfileActivity extends AppCompatActivity {
                     binding.nameBox.setError("Please type a name");
                     return;
                 }
-                int selectedId = binding.radiogrpid.getCheckedRadioButtonId();
-
-                if (selectedId != -1){
-                    radiobutton = findViewById(selectedId);
-                    selectedR_btn = radiobutton.getText().toString();
-                }
-
-
-
-                Toast.makeText(getApplicationContext(),selectedR_btn,Toast.LENGTH_SHORT).show();
-
+//
                 dialog.show();
                 if(selectedImage != null) {
                     StorageReference reference = storage.getReference().child("Profiles").child(auth.getUid());
@@ -101,13 +91,13 @@ public class SetupProfileActivity extends AppCompatActivity {
                                         String imageUrl = uri.toString();
 
                                         String uid = auth.getUid();
-                                        String phone = auth.getCurrentUser().getPhoneNumber();
+                                        String phone = auth.getCurrentUser().getEmail();
                                         String name = binding.nameBox.getText().toString();
 
                                         User user = new User(uid, name, phone, imageUrl);
 
                                         database.getReference()
-                                                .child("Profiles").child(selectedR_btn)
+                                                .child("users")
                                                 .child(uid)
                                                 .setValue(user)
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -126,12 +116,14 @@ public class SetupProfileActivity extends AppCompatActivity {
                     });
                 } else {
                     String uid = auth.getUid();
-                    String phone = auth.getCurrentUser().getPhoneNumber();
+                    String phone = auth.getCurrentUser().getEmail();
+
+
 
                     User user = new User(uid, name, phone, "No Image");
 
                     database.getReference()
-                            .child("Profiles").child(selectedR_btn)
+                            .child("users")
                             .child(uid)
                             .setValue(user)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -139,7 +131,7 @@ public class SetupProfileActivity extends AppCompatActivity {
                                 public void onSuccess(Void aVoid) {
                                     dialog.dismiss();
                                     Intent intent = new Intent(SetupProfileActivity.this, MainActivity.class);
-                                    intent.putExtra("radio_btn",selectedR_btn);
+                                    //intent.putExtra("radio_btn",selectedR_btn);
                                     startActivity(intent);
                                     finish();
                                 }

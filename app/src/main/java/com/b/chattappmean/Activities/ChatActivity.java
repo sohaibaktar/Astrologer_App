@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.b.chattappmean.Message;
@@ -51,7 +52,7 @@ FirebaseDatabase database;
         receiverRoom = receiverUid + senderUid;
 
         database = FirebaseDatabase.getInstance();
-
+        //data fetch
         database.getReference().child("chats")
                 .child(senderRoom)
                 .child("messages")
@@ -68,12 +69,13 @@ FirebaseDatabase database;
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
+                        Log.d("TAG", "onCancelled: chat actvity");
                     }
                 });
 
 
 
+        //click to send data to server
         binding.sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,7 +99,7 @@ FirebaseDatabase database;
                                 .setValue(message).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-
+                                Log.d("TAG", "onSuccess: messege sent");
                             }
                         });
                     }
