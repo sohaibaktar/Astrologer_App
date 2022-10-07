@@ -35,11 +35,11 @@ public class PhoneNumberActivity extends AppCompatActivity {
         password_ = findViewById(R.id.mail_pass);
         mAuth = FirebaseAuth.getInstance();
         //if user come to second time.
-//        if(mAuth.getCurrentUser() != null) {
-//            Intent intent = new Intent(PhoneNumberActivity.this,MainActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }
+        if(mAuth.getCurrentUser() != null) {
+            Intent intent = new Intent(PhoneNumberActivity.this,MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         getSupportActionBar().hide();
 

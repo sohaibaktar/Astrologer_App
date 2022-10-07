@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -52,7 +53,7 @@ FirebaseDatabase database;
         receiverRoom = receiverUid + senderUid;
 
         database = FirebaseDatabase.getInstance();
-        //data fetch
+        //data receive
         database.getReference().child("chats")
                 .child(senderRoom)
                 .child("messages")
@@ -75,8 +76,18 @@ FirebaseDatabase database;
 
 
 
+        //Select image from your phone
+        binding.attachment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(intent, 45);
+            }
+        });
         //click to send data to server
-        binding.sendBtn.setOnClickListener(new View.OnClickListener() {
+          binding.sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String messageTxt = binding.messageBox.getText().toString();

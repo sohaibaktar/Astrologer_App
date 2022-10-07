@@ -1,9 +1,12 @@
 package com.b.chattappmean.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<User> users;
     UsersAdapter usersAdapter;
     FirebaseAuth mAuth;
+    AlertDialog.Builder builder;
     User user;
 
     @Override
@@ -38,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        builder = new AlertDialog.Builder(this);
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         users = new ArrayList<>();
@@ -90,14 +95,31 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.search:
                                 Toast.makeText(this,"Search Clicked",Toast.LENGTH_SHORT).show();
                                 break;
-                        case R.id.group:
+                    case R.id.profile:
+                                Intent i = new Intent(MainActivity.this,SetupProfileActivity.class);
+                                startActivity(i);
                                 Toast.makeText(this,"Groups Clicked",Toast.LENGTH_SHORT).show();
                                 break;
                         case R.id.invite:
                                 Toast.makeText(this,"Invite Clicked",Toast.LENGTH_SHORT).show();
                                 break;
                         case R.id.settings:
-                                Toast.makeText(this,"Settings Clicked",Toast.LENGTH_SHORT).show();
+                                builder.setMessage("Do you want to Logout Your Account?")
+                                        .setCancelable(false)
+                                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                               @Override
+                                               public void onClick(DialogInterface dialogInterface, int i) {
+                                                            FirebaseAuth.getInstance().signOut();
+                                                            Intent intent = new Intent(MainActivity.this,PhoneNumberActivity.class);
+                                                            startActivity(intent);
+                                                            finishAffinity();
+                                                        }
+                                                    });
+                            FirebaseAuth.getInstance().signOut();
+                            Intent intent = new Intent(MainActivity.this,PhoneNumberActivity.class);
+                            startActivity(intent);
+                            finishAffinity();
+                                Toast.makeText(this,"Settings Clicked!",Toast.LENGTH_SHORT).show();
                                 break;
                 }
                 return super.onOptionsItemSelected(item);

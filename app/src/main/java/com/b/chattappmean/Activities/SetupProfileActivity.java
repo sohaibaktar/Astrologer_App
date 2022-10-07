@@ -56,7 +56,7 @@ public class SetupProfileActivity extends AppCompatActivity {
 
 
         getSupportActionBar().hide();
-
+        //Select image from your phone
         binding.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -12,9 +12,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register yourself"
+        android:text="@string/register_yourself"
         android:textStyle="bold"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/teal_200"/>
 
